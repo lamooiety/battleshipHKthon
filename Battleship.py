@@ -83,7 +83,7 @@ def ShipLogic(round, yourMap, yourHp, enemyHp, p1ShotSeq, p1PrevHit, storage):
         # hit the crossboard
         if p1PrevHit:
             # move to step 3
-            storage[0] == 3
+            storage[0] = 3
 
             prevCoord = p1ShotSeq[-1]
             prevX = prevCoord[0]
@@ -179,7 +179,7 @@ def ShipLogic(round, yourMap, yourHp, enemyHp, p1ShotSeq, p1PrevHit, storage):
             storage[2].append(prevCoord)
 
         # back to hunting if it meet the length
-        if storage[2].length >= 5:
+        if len(storage[2]) >= 5:
             return p1ShotSeq[-1], []
 
 
