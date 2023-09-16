@@ -1,5 +1,6 @@
 import importlib
 import random
+import csv
 def putShipOnMap(shipCoor, pMap):
     '''
     Util func to put 2's into player maps 
@@ -208,3 +209,12 @@ print("Enemy HP: ",enemyHp)
 print("Your shots: \n",yourMap,"\n")
 
 print("Enemy shots: \n",p2ShotSeq,"\n")
+
+with open('out.csv', 'a') as f:
+    if yourHp > 0: 
+        f.write("1")
+    
+    if enemyHp > 0:
+        f.write("0")
+    
+    f.write("\n")
