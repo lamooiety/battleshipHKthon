@@ -60,13 +60,13 @@ def ShipLogic(round, yourMap, yourHp, enemyHp, p1ShotSeq, p1PrevHit, storage):
         crossboard.remove(coord)
 
         # make sure it is not hit before
-        while (coord in p1PrevHit and crossboard != []):
+        while (coord in p1ShotSeq and crossboard != []):
             coord = random.choice(crossboard)
             crossboard.remove(coord)
 
         # return to hunt
         if crossboard == []:
-            storage = []
+            return coord, []
 
         storage.append(crossboard)
 
@@ -96,7 +96,7 @@ def ShipLogic(round, yourMap, yourHp, enemyHp, p1ShotSeq, p1PrevHit, storage):
             storage[2].append(prevCoord)
 
             # back to hunting if it meet the length
-            if storage[2].length >= 5:
+            if len(storage[2]) >= 5:
                 return p1ShotSeq[-1], []
 
 
@@ -150,13 +150,13 @@ def ShipLogic(round, yourMap, yourHp, enemyHp, p1ShotSeq, p1PrevHit, storage):
             crossboard.remove(coord)
 
             # make sure it is not hit before
-            while (coord in p1ShotSeq):
+            while (coord in p1ShotSeq and crossboard != []):
                 coord = random.choice(crossboard)
                 crossboard.remove(coord)
             
             # return to hunt
             if crossboard == []:
-                storage = []
+                return coord, []
 
             storage[1] = crossboard
 
